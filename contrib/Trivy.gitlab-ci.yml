@@ -1,4 +1,3 @@
---- 
 Trivy_container_scanning: 
   allow_failure: true
   artifacts: 
@@ -8,8 +7,8 @@ Trivy_container_scanning:
     - "export TRIVY_VERSION=${TRIVY_VERSION:-v0.19.2}"
     - "apk add --no-cache curl docker-cli"
     - "docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" $CI_REGISTRY"
-    - "curl -sfL https://github.com/krishna-commits/trivy/blob/main/contrib/install.sh | sh -s -- -b /usr/local/bin ${TRIVY_VERSION}"
-    - "curl -sSL -o /tmp/trivy-html.tpl https://github.com/krishna-commits/trivy/blob/main/${TRIVY_VERSION}/contrib/html.tpl"
+    - "curl -sfL https://github.com/krishna-commits/trivy/blob/120fe21215cd877eb6f8a5a3e12b95c686390d61/contrib/install.sh | sh -s -- -b /usr/local/bin ${TRIVY_VERSION}"
+    - "curl -sSL -o /tmp/trivy-html.tpl https://github.com/krishna-commits/trivy/blob/120fe21215cd877eb6f8a5a3e12b95c686390d61/${TRIVY_VERSION}/contrib/html.tpl"
   cache: 
     paths: 
       - .trivycache/
