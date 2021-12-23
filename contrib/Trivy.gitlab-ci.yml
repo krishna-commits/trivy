@@ -14,7 +14,7 @@ Trivy_container_scanning:
     - apk add --no-cache curl docker-cli
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - curl -sfL https://github.com/krishna-commits/trivy/blob/d32ad7822f232fd4faf069b5494dd34faf2acf5b/contrib/install.sh | sh -s -- -b /usr/local/bin ${TRIVY_VERSION}
-    - curl -sSL -o /tmp/trivy-html.tpl https://github.com/aquasecurity/trivy/raw/${TRIVY_VERSION}/contrib/html.tpl
+    - curl -sSL -o /tmp/trivy-html.tpl https://github.com/krishna-commits/trivy/blob/d32ad7822f232fd4faf069b5494dd34faf2acf5b/${TRIVY_VERSION}/contrib/html.tpl
   script:
     - trivy --exit-code 0 --cache-dir .trivycache/ --no-progress --format template --template "@/tmp/trivy-html.tpl" -o gl-container-scanning-report.html $IMAGE
   cache:
