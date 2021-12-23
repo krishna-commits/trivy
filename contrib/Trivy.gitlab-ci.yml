@@ -22,7 +22,7 @@ Trivy_container_scanning:
       - .trivycache/
   artifacts:
     reports:
-      container_scanning: $IMAGE-scanning-report.html
+      container_scanning: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-scanning-report.html
   dependencies: []
   only:
     refs:
